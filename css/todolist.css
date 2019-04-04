@@ -1,0 +1,25 @@
+body {
+    background-color: beige;
+    overflow-x: hidden;
+}
+.first-row {
+    background-color: rgb(55, 146, 126);
+    padding: 2%;
+    color: white;
+    font-size: 1.4em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#date-time {
+    
+    font-size: 1.8em !important;
+    opacity: 0.8;
+}
+.checked:hover, .edit:hover, .delete:hover {
+    transition: all 0.5s;
+    opacity: 0.9;
+    background-color: gray;
+}
+
+
+    
