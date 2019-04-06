@@ -7,41 +7,41 @@ function newElement() {
   var span1 = document.createElement("SPAN");
   const val = document.querySelector('input[type="text"]').value;
   var span2 = document.createElement("SPAN");
-  var x = document.createElement("i");
-  var a = document.createElement("a");
-  var y = document.createElement("i");
-  var z = document.createElement("i");
+  var icon1 = document.createElement("i");
+  var icon2Link = document.createElement("a");
+  var icon2 = document.createElement("i");
+  var icon3 = document.createElement("i");
 
 
 divv.className = "row first-row"
 span1.className="col xl10 l9 m8 s6 name"
 span2.className = 'col xl2 l3 m4 s6 icon'
-  x.className = 'material-icons btn btn-small orange tooltipped checked'
-  a.className='modal-trigger';
-  y.className = 'material-icons btn btn-small red tooltipped edit'
-  z.className = 'material-icons btn btn-small yellow tooltipped delete'
+  icon1.className = 'material-icons btn btn-small #ffa726 orange lighten-1 tooltipped checked'
+  icon2Link.className='modal-trigger';
+  icon2.className = 'material-icons btn btn-small #ef5350 red lighten-1 tooltipped edit'
+  icon3.className = 'material-icons btn btn-small #fff176 yellow lighten-2 tooltipped delete'
 
   span1.textContent = val;
-  x.textContent = 'check_circle_outline'
-  y.textContent = 'create'
-  z.textContent = 'delete'
+  icon1.textContent = 'check_circle_outline'
+  icon2.textContent = 'create'
+  icon3.textContent = 'delete'
   // SET ATTRIBUTES 
-x.setAttribute('data-position','top');
-x.setAttribute('data-tooltip','Check');
+icon1.setAttribute('data-position','top');
+icon1.setAttribute('data-tooltip','Check');
 
-y.setAttribute('data-position','top');
-y.setAttribute('data-tooltip','Edit');
+icon2.setAttribute('data-position','top');
+icon2.setAttribute('data-tooltip','Edit');
 
-z.setAttribute('data-position','top');
-z.setAttribute('data-tooltip','Delete');
+icon3.setAttribute('data-position','top');
+icon3.setAttribute('data-tooltip','Delete');
 
-a.setAttribute('href','#modal-edit');
+icon2Link.setAttribute('href','#modal-edit');
 //appending childs
-a.appendChild(y);
+icon2Link.appendChild(icon2);
 
-span2.appendChild(x);
-span2.appendChild(a);
-span2.appendChild(z);
+span2.appendChild(icon1);
+span2.appendChild(icon2Link);
+span2.appendChild(icon3);
 
 li.appendChild(span1);
 li.appendChild(span2);
@@ -89,42 +89,31 @@ for (var i = 0, len = checkBox.length; i < len; i++)
         }
     })(i);
 }
-
-
-
-
-
-
-
-
 $(document).ready(function(){
   $('.tooltipped').tooltip()
   $('.modal').modal()
 });
 
-
-
-
 // EDIT FUNCTION 
 
-var g = document.getElementsByClassName('edit');
+var editColl = document.getElementsByClassName('edit');
 var updateLi = document.getElementsByTagName('li');
-var placeholder = document.getElementById('wtf');
-var ps= document.getElementById('update-item')
-for (var i = 0, len = g.length; i < len; i++)
+var placeHolder = document.getElementById('wtf');
+var updBtn = document.getElementById('update-item')
+for (var i = 0, len = editColl.length; i < len; i++)
 {
     (function(index){
-        g[i].onclick = function(){
+        editColl[i].onclick = function(){
               
-              var d = updateLi[index];
-              document.querySelector('input[class="wtf"]').value = d.firstElementChild.innerText;
-              ps.onclick = function() {
+              var liIndex = updateLi[index];
+              document.querySelector('input[class="wtf"]').value = liIndex.firstElementChild.innerText;
+              updBtn.onclick = function() {
               if (document.querySelector('input[class="wtf"]').value === '')
               {
                   alert('You must write something');
               }
               else{
-                  d.firstElementChild.innerHTML = document.querySelector('input[class="wtf"]').value;
+                  liIndex.firstElementChild.innerHTML = document.querySelector('input[class="wtf"]').value;
         }
     }
         }
@@ -146,36 +135,36 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var a = document.createElement("i");
-  var aa = document.createElement("a");
-  var b = document.createElement("i");
-  var c = document.createElement("i");
-  a.textContent = 'check_circle_outline'
-  b.textContent = 'create'
-  c.textContent = 'delete'
+  var icon1 = document.createElement("i");
+  var icon2Link = document.createElement("a");
+  var icon2 = document.createElement("i");
+  var icon3 = document.createElement("i");
+  icon1.textContent = 'check_circle_outline'
+  icon2.textContent = 'create'
+  icon3.textContent = 'delete'
   span.className = 'col xl2 l3 m4 s6 icon'
-  a.className = 'material-icons btn btn-small orange tooltipped checked'
-  aa.className='modal-trigger';
-  b.className = 'material-icons btn btn-small red tooltipped edit'
-  c.className = 'material-icons btn btn-small yellow tooltipped delete'
+  icon1.className = 'material-icons btn btn-small #ffa726 orange lighten-1 tooltipped checked'
+  icon2Link.className='modal-trigger';
+  icon2.className = 'material-icons btn btn-small #ef5350 red lighten-1 tooltipped edit'
+  icon3.className = 'material-icons btn btn-small #fff176 yellow lighten-2 tooltipped delete'
   // SET ATTRIBUTES 
-a.setAttribute('data-position','top');
-a.setAttribute('data-tooltip','Check');
+icon1.setAttribute('data-position','top');
+icon1.setAttribute('data-tooltip','Check');
 
 
-b.setAttribute('data-position','top');
-b.setAttribute('data-tooltip','Edit');
+icon2.setAttribute('data-position','top');
+icon2.setAttribute('data-tooltip','Edit');
 
 
-c.setAttribute('data-position','top');
-c.setAttribute('data-tooltip','Delete');
+icon3.setAttribute('data-position','top');
+icon3.setAttribute('data-tooltip','Delete');
 
-aa.setAttribute('href','#modal-edit');
+icon2Link.setAttribute('href','#modal-edit');
 //appending childs
-aa.appendChild(b);
-span.appendChild(a);
-span.appendChild(aa);
-span.appendChild(c);
+icon2Link.appendChild(icon2);
+span.appendChild(icon1);
+span.appendChild(icon2Link);
+span.appendChild(icon3);
 myNodelist[i].appendChild(span);
  
 }
@@ -228,71 +217,26 @@ for (var i = 0, len = checkBox.length; i < len; i++)
 
 
 
-
-
-
-
-
-
-
-/*
-
-var list = document.getElementsByClassName("checked");
-for(i=0;i<list.length;i++){
-    
-list[i].onclick = function() {
-
- if(this.innerHTML= "check_circle_outline")
-      {
-    this.innerHTML= "check_circle";
-    this.setAttribute('data-tooltip','Checked');
-      }
-      else {
-        this.innerHTML= "check_circle_outline";
-        this.setAttribute('data-tooltip','Check');
-      }
-}
-
-}
-*/
-/*var list = document.getElementsByClassName("checked");
-var j;
-for (j = 0; j < list.length; j++) {
-  list[j].onclick = function() {
-      if(this.innerHTML= "check_circle_outline")
-      {
-    this.innerHTML= "check_circle";
-    this.setAttribute('data-tooltip','Checked');
-      }
-      else if (this.innerHTML= "check_circle") {
-        this.innerHTML= "check_circle_outline";
-        this.setAttribute('data-tooltip','Check');
-      }
-  }
-}*/
-
-
-
 // EDIT FUNCTION 
 
-var g = document.getElementsByClassName('edit');
+var editColl = document.getElementsByClassName('edit');
 var updateLi = document.getElementsByTagName('li');
 var placeholder = document.getElementById('wtf');
-var ps= document.getElementById('update-item')
-for (var i = 0, len = g.length; i < len; i++)
+var updBtn= document.getElementById('update-item')
+for (var i = 0, len = editColl.length; i < len; i++)
 {
     (function(index){
-        g[i].onclick = function(){
+        editColl[i].onclick = function(){
               
-              var d = updateLi[index];
-              document.querySelector('input[class="wtf"]').value = d.firstElementChild.innerText;
-              ps.onclick = function() {
+              var liIndex = updateLi[index];
+              document.querySelector('input[class="wtf"]').value = liIndex.firstElementChild.innerText;
+              updBtn.onclick = function() {
               if (document.querySelector('input[class="wtf"]').value === '')
               {
                   alert('You must write something');
               }
               else{
-                  d.firstElementChild.innerHTML = document.querySelector('input[class="wtf"]').value;
+                  liIndex.firstElementChild.innerHTML = document.querySelector('input[class="wtf"]').value;
         }
     }
         }
